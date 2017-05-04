@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    {% load static %}
+
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+     <script src=" {% static '/static_dirs/JS/retrieve_img.js' %}"> </script>
+    <link rel="stylesheet" type="text/css" href="{% static '/static_dirs/CSS/Retrieve_View.css' %}">
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<h1></h1>
+<body>
+
+ <!-- Invisible box -->
+ <div class="box">
+     <div id="pic_box">
+
+        <!-- Trigger the Modal -->
+<img id="myImg" src="{{ queryset.photo.url }}" alt="product image" width="300" height="300">
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- The Close Button -->
+  <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+
+  <!-- Modal Content (The Image) -->
+  <img class="modal-content" id="img">
+
+  <!-- Modal Caption (Image Text) -->
+  <div id="caption">{{ queryset.description }}</div>
+    </div>
+</div>
+<div class="display">
+    <p class="title"> {{ queryset.title }}</p>
+    <div id="des_box">
+    <p class="description"> {{ queryset.description }}</p>
+    </div>
+    <p class="price"> {{ queryset.price }}</p>
+    </div>
+
+</div>
+
+</body>
+
+<div class="footer">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">†ruR£B£L</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Page 3</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+</div>
+</html>
