@@ -17,7 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from product import views
 from product.views import collection_view
-from accounts.views import login, create_person, logout_view
+from accounts.views import login, create_person, logout_view, home
 from django.conf.urls.static import static
 from django.conf import settings
 from rest_framework import routers
@@ -38,6 +38,8 @@ urlpatterns = [
     url(r'^collection_view/$', collection_view, name='collection_view'),
     url(r'^create/$', create_product, name='create_product'),
     url(r'^retrieve/(?P<title>[\w.@+-]+)/$', retrieve_product, name='retrieve_product'),
+    url(r'^home/$', home, name='home'),
+    #url(r'^retrieve/(?P<slug>[\w-]+)/$', retrieve_product, name='Retrieve_Product'),
     # url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     # url(r'^api/', include(routers.url)),
     #url(r'^register/$ views.register/', name='register'),

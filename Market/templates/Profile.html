@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+
+    {% csrf_token %}
+    {{ user }}
+    {{ profile.title }}
+    {{ user.email }}
+    {{ user.snap_name }}
+    {{ user.website }}
+    {{ user.gram_name }}
+    <p><img src= "{{ profile.photo.url }}"></p>
+
+{% endblock content %}

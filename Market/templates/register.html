@@ -1,16 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_ul }}
-    <button>Login</button>
-</form>
+{%  block content %}
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
 
-</body>
-</html>
+    <p>Username<input name="username"></p>
+    <p>Password<input name="password"></p>
+    <p>Email<input name="email"></p>
+    <p>Website<input name="website"></p>
+    <p>Snapchat<input name="snap_name"></p>
+    <p>Instagram Name<input name="gram_name"></p>
+
+
+    <button type="submit">Register</button>
+    </form>
+{% endblock content %}

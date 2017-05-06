@@ -1,0 +1,12 @@
+
+{% extends 'base.html' %}
+
+{%  block content %}
+<form method="get" action="{% url 'register' %}">
+    {% csrf_token %}
+    <button type="submit" id="Register" class="Register" >Register</button>
+</form>
+
+<form method="get" action="{% url 'user_login' %}">{% csrf_token %}<button type="submit" id="Login" class="Login" >Login</button></form>
+
+{% endblock content %}

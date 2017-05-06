@@ -1,6 +1,8 @@
 from django.db import models
 from django import forms
-from django.contrib.auth.models import User
+#from django.contrib.auth.models import User
+from accounts.models import Person
+from autoslug import AutoSlugField
 
 
 # Create your models here.
@@ -27,7 +29,8 @@ class Collection(models.Model):
         return self.category
 
 
-class Product(models.Model,):
+class Product(models.Model):
+
 
     Sizes = (
         ('S', 'Small'),
@@ -40,14 +43,17 @@ class Product(models.Model,):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     sale_price = models.DecimalField(max_digits=10, decimal_places=2, default=6.99, null=True, blank=True)
     photo = models.ImageField()
+    user = models.ForeignKey(Person, on_delete=models.CASCADE)
+    category = models.CharField(max_length=10, default='default')
+    #slug = AutoSlugField(populate_from=title, unique_with=user.__str__(), default='default')
 
     #collection = models.ForeignKey(Collection, related_name='products')
 
     def __str__(self):
         return self.title
 
-    class Meta:
-        ordering = ['title']
+    # class Meta:
+    #     ordering = ['title']
 
 
 class Register(models.Model):
